@@ -1,0 +1,334 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* change media query for desktop */
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* ///// LEFT SIDE ///// */
+
+.left-container {
+  background: #165498;
+  width: 70%;
+  height: 100vh;
+  display: flex;
+}
+
+.entry-pane {
+  border: white solid 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 800px;
+  height: 650px;
+  display: flex;
+}
+
+.sidebar {
+  background: #0a0d0f;
+  width: 80px;
+  height: 100vh;
+}
+
+.time {
+  color: #ffffff;
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
+  margin: 50px auto;
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+}
+
+.journal-pane {
+  background: #ffffff;
+  width: 40%;
+  height: 100%;
+  overflow: scroll;
+}
+
+.journal-pane__entry {
+  margin: 30px auto 0 auto;
+  border: #0a0d0f solid 2px;
+  background: #ffffff;
+  width: 80%;
+  height: 100px;
+  position: relative;
+  cursor: pointer;
+}
+
+.side {
+  position: absolute;
+  background: #0a0d0f;
+  width: 10px;
+  height: 100%;
+}
+
+.delete {
+  position: absolute;
+  right: 5px;
+}
+
+.timestamp {
+  position: absolute;
+  right: 5px;
+  bottom: 0px;
+  display: block;
+  color: #0a0d0f;
+  font-size: 0.8em;
+}
+
+.content {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.entry-area {
+  background: none;
+  width: 100%;
+  height: 95%;
+  padding: 10px;
+  resize: none;
+  border: none;
+  color: white;
+  font-size: 1em;
+  font-family: "Montserrat", sans-serif;
+  display: block;
+}
+
+.entry-area:focus {
+  outline: none;
+}
+
+.entry-area::placeholder {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+}
+
+.entry-pane__button {
+  background: #0a0d0f;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  width: 100%;
+  height: 5%;
+  font-family: "Montserrat", sans-serif;
+  text-align: right;
+  color: #ffffff;
+  padding-right: 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.entry-pane__button:focus {
+  outline: none;
+}
+
+.entry-pane__button:active {
+  background: white;
+  color: #0a0d0f;
+}
+
+.entry-pane__form {
+  width: 60%;
+}
+
+/* ///// RIGHT SIDE ///// */
+
+.right-container {
+  background: #143a7a;
+  width: 30%;
+  height: 100vh;
+}
+
+/* ///// Calendar ///// */
+
+.calendar {
+  width: 350px;
+  height: 400px;
+  background: #0a0d0f;
+  margin: 50px auto 0 auto;
+}
+
+.month {
+  width: 100%;
+  height: 70px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+  text-align: center;
+}
+
+.month i {
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.month h1 {
+  font-size: 1em;
+}
+
+.weekdays {
+  width: 100%;
+  height: 2em;
+  color: white;
+  padding: 0 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.days {
+  color: white;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.days div {
+  width: calc(310px / 7);
+  height: calc(310px / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.prev-date,
+.next-date {
+  opacity: 0.5;
+}
+
+.today {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #165498;
+}
+
+.days div:hover:not(.today) {
+  background: white;
+  color: black;
+  cursor: pointer;
+}
+
+/* Todos */
+.todos {
+  margin: 50px auto 0 auto;
+  width: 350px;
+  height: 200px;
+  background: #0a0d0f;
+  overflow: scroll;
+}
+
+.todos input {
+  font-size: 1.2em;
+  width: 100%;
+  background: white;
+  padding: 0 0.5em;
+  color: black;
+}
+
+.todos input::placeholder {
+  color: #0a0d0f;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.todos input:focus {
+  outline: none;
+}
+
+.todos ul {
+  padding: 2em;
+}
+
+.todos li {
+  margin-bottom: 20px;
+  padding: 0.5em;
+  color: white;
+  list-style-type: none;
+  border: solid white 2px;
+}
+
+.todos button {
+  width: 17px;
+  height: 17px;
+  border: 2px solid white;
+  float: right;
+  cursor: pointer;
+  background: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .left-container {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .entry-pane {
+    margin: 50px 50px;
+  }
+
+  .right-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .todos {
+    height: 400px;
+    margin-bottom: 50px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    height: 700px;
+  }
+
+  .left-container {
+    height: 700px;
+  }
+
+  .entry-pane {
+    max-width: 600px;
+    max-height: 605px;
+    display: block;
+    margin: 50px 20px;
+  }
+
+  .entry-pane__form {
+    width: 100%;
+    height: 300px;
+    position: relative;
+  }
+
+  .journal-pane {
+    width: 100%;
+    height: 300px;
+  }
+
+  .entry-pane__button {
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+  }
+}

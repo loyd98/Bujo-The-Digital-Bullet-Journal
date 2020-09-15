@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bujo | The Digital Bullet Journal</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="left-container">
+        <div class="sidebar">
+          <span class="time">
+            <span class="time__date"></span>
+            <span class="time__clock"></span>
+          </span>
+        </div>
+        <div class="entry-pane">
+          <form class="entry-pane__form">
+            <textarea
+              name="entry"
+              class="entry-area"
+              placeholder="What's on your mind?"
+            ></textarea>
+            <input class="entry-pane__button" type="submit" value="Submit" />
+          </form>
+          <div class="journal-pane">
+            <!-- Entry -->
+            <!-- <div class="journal-pane__entry">
+              <div class="side"></div>
+              <span class="delete">x</span>
+              <span class="timestamp">September</span>
+              <div class="content">Hello</div>
+            </div> -->
+            <!-- Entry -->
+          </div>
+        </div>
+      </div>
+      <div class="right-container">
+        <!-- Calendar -->
+        <div class="calendar">
+          <div class="month">
+            <i class="fas fa-angle-left prev"></i>
+            <div class="date">
+              <h1></h1>
+              <p></p>
+            </div>
+            <i class="fas fa-angle-right next"></i>
+          </div>
+          <div class="weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+          <div class="days"></div>
+        </div>
+        <!-- Todos -->
+        <div class="todos">
+          <form>
+            <input type="text" placeholder="Create a todo here." />
+          </form>
+          <ul>
+            <li>
+              I am a todo
+              <button></button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Date FNS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyB7HosXTouYRjsg6y0BNaJ1efpC1XZzQtc",
+        authDomain: "bujo-3ac07.firebaseapp.com",
+        databaseURL: "https://bujo-3ac07.firebaseio.com",
+        projectId: "bujo-3ac07",
+        storageBucket: "bujo-3ac07.appspot.com",
+        messagingSenderId: "723665110809",
+        appId: "1:723665110809:web:4e98bf1eb0a27796272788",
+        measurementId: "G-H18QFCT6QF",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      firebase.analytics();
+    </script>
+
+    <script src="journal.js"></script>
+    <script src="todos.js"></script>
+    <script src="calendar.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
