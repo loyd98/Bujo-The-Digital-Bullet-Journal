@@ -1,10 +1,14 @@
 // dom queries
 const entriesDiv = document.querySelector(".journal-pane");
 const entries = document.getElementsByClassName("journal-pane__entry");
+const todosList = document.querySelector(".todos__list");
+const todosItems = document.getElementsByClassName("todos__item");
 
 // class instances
 const journal = new Journal();
 const journalUI = new JournalUI(entriesDiv);
+const todos = new Todos();
+const todosUI = new TodosUI(todosList);
 
 // Clock
 const currentTime = () => {
@@ -65,4 +69,30 @@ journal.getEntries((doc) => {
 
 journal.removeEntries((id) => {
   journalUI.removeRender(entries, id);
+});
+
+// Todos
+todosForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const todo = todosForm.todo.value.trim();
+  if (todo !== "") {
+    todos.addTodo(todo);
+    todosUI.removeRender(1);
+  }
+  todosForm.reset();
+});
+
+todos.getTodos((doc) => {
+  todosUI.render(doc.data(), doc.id);
+});
+
+todos.removeTodos((id) => {
+  todosUI.removeRender(todosItems, id);
+});
+
+todosList.addEventListener("click", (e) => {
+  if (e.target.className === "todos__delete") {
+    const id = e.target.parentElement.getAttribute("data-id");
+    todos.deleteTodo(id);
+  }
 });
